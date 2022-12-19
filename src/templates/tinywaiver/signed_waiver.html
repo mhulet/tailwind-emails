@@ -1,0 +1,103 @@
+---
+title: "Signed waiver form for [account name]"
+preheader: "Thanks for your signature! Here is your signed waiver form."
+bodyClass: bg-slate-50
+account:
+  logo_url: https://res.cloudinary.com/punchpass/image/upload/v1504268673/punchpass_emails/yoga-studio-logo.png
+  name: The Jedi's Dojo
+  website_url: https://www.thedojo.space
+signature:
+  signed_waiver_url: http://s3.amazonaws.com/etc
+localized:
+  hi: "Hi John,"
+  thanks_line: Thank you for taking the time to sign our waiver form.
+  waiver_attached: Please click the button below to download the latest version of your signed waiver form.
+  button_text: Open my signed waiver form
+  text_link: "If the button doesn't work, click here"
+  powered_by: Powered by TinyWaiver
+  powered_by2: "Waivers management made easy - tinywaiver.com"
+---
+
+<extends src="src/layouts/main.html">
+  <block name="template">
+    <table class="w-full font-sans">
+      <tr>
+        <td align="center" class="bg-slate-50">
+          <table class="w-150 sm:w-full">
+            <tr>
+              <td class="p-12 sm:py-8 sm:px-6 text-center">
+                <a href="{{{ page.account.website_url }}}">
+                  <img src="{{{ page.account.logo_url }}}" width="100" alt="{{{ page.account.name }}}" class="max-w-full align-middle [border:0]">
+                </a>
+              </td>
+            </tr>
+            <tr>
+              <td align="center" class="sm:px-6">
+                <table class="w-full">
+                  <tr>
+                    <td class="p-12 sm:px-6 bg-white text-slate-700 text-base text-left leading-6 rounded shadow-sm">
+                      <p>
+                        <raw>{{ localized.hi }}</raw>
+                      </p>
+
+                      <p class="text-2xl sm:leading-8 text-black font-semibold m-0 mb-6">
+                        <raw>{{ localized.thanks_line }}</raw>
+                      </p>
+
+                      <p class="m-0 mb-6">
+                        <raw>{{ localized.waiver_attached }}</raw>
+                      </p>
+
+                      <div class="leading-full">
+                        <a
+                          href="<raw>{{ signature.signed_waiver_url }}</raw>"
+                          class="inline-block py-3.5 px-4 rounded text-base font-semibold text-center [text-decoration:none] text-white bg-indigo-700 hover:bg-indigo-500"
+                        >
+                          <outlook>
+                            <i class="tracking-6 -mso-font-width-full mso-text-raise-7.5">&#8202;</i>
+                          </outlook>
+                          <span class="mso-text-raise-4"><raw>{{ localized.button_text }}</raw> &rarr;</span>
+                          <outlook>
+                            <i class="tracking-6 -mso-font-width-full">&#8202;</i>
+                          </outlook>
+                        </a>
+                      </div>
+                      <table class="w-full" role="separator">
+                        <tr>
+                          <td class="py-8">
+                            <div class="bg-slate-200 h-px leading-px">&zwnj;</div>
+                          </td>
+                        </tr>
+                      </table>
+
+                      <p class="m-0 mb-4">
+                        <raw>{{ localized.text_link }}</raw>:<br>
+                        <raw>{{ signature.signed_waiver_url }}</raw>
+                      </p>
+                    </td>
+                  </tr>
+                  <tr role="separator">
+                    <td class="h-12"></td>
+                  </tr>
+                  <tr>
+                    <td class="text-center text-slate-600 text-xs px-6">
+                      <p class="m-0 mb-2 uppercase">
+                        {{{ page.localized.powered_by }}}
+                      </p>
+                      <p class="m-0 italic">
+                        {{{ page.localized.powered_by2 }}}
+                      </p>
+                    </td>
+                  </tr>
+                  <tr role="separator">
+                    <td class="h-12"></td>
+                  </tr>
+                </table>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
+  </block>
+</extends>
